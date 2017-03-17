@@ -205,8 +205,5 @@ We will configure apache to rotate every 24 hrs and clean files older than 7 day
     ProxyPassReverse / http://gitlab.local:9380/
 </VirtualHost>
 ```
-
-### Configure trusted_proxies and real_ip:
-
 ### Hardening Apache SSL Configuration:
 TODO
