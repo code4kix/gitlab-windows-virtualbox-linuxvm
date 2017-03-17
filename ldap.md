@@ -1,4 +1,4 @@
-# ** Gitlab Omnibus - LDAP Configuration **
+# **Gitlab Omnibus - LDAP Configuration**
 
 We will create a file: `ldap_settings.yml` file in the host system and scp it onto the virtualbox guest vm. After this we will edit the local copy of gitlab.rb to use this yml file and scp it too. Note that the indentation matters in the yml file.
 

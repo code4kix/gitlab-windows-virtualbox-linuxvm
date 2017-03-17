@@ -54,7 +54,7 @@ mkdir -p /home/gitadmin/gitlab/backups
 sudo mount -t vboxsf backups /home/gitadmin/gitlab/backups
 ```
 
-** If you have to umount the shares: **  
+**If you have to umount the shares:**  
 
 Remove it in the host:
 ```bash

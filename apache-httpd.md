@@ -1,4 +1,4 @@
-# ** Apache HTTP Server Reverse Proxy **
+# **Apache HTTP Server Reverse Proxy**
 We need to set up apache as a reverse-proxy on the host.
 
 Download Apache 2.4.25 Win64 from here:
@@ -128,7 +128,7 @@ Verify both https and http redirect
 
 ### Set up a reverse-proxy to gitlab using https
 
-** Note: ** NGINX on the virtualbox guest vm needs to be configured when the reverse-proxy is set this way. Please refer to NGINX.md to reconfigure it.
+**Note:** NGINX on the virtualbox guest vm needs to be configured when the reverse-proxy is set this way. Please refer to NGINX.md to reconfigure it.
 
 Reference: https://wiki.apache.org/httpd/RedirectSSL
 

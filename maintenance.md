@@ -1,4 +1,4 @@
-# ** Gitlab Omnibus - Maintenance Documentation **
+# **Gitlab Omnibus - Maintenance Documentation**
 
 ## Upgrading Gitlab
 

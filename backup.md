@@ -1,10 +1,10 @@
-# ** Gitlab Omnibus - Backup Documentation **
+# **Gitlab Omnibus - Backup Documentation**
 
 Reference: https://docs.gitlab.com/omnibus/settings/backups.html#backup-and-restore-omnibus-gitlab-configuration
 
 Assuming that you set up a file share between the host and the virtualbox guest vm (Refer to #File-Share.md to see how), read on.
 
-** Note: **
+**Note:**
 * Separate config, security and application data backups, don't keep them all together. If you separate your configuration backup from your application data backup, you reduce the chance that your encrypted application data will be lost/leaked/stolen together with the keys needed to decrypt it.
 * When you restore, gitlab versions must match.
 
@@ -18,7 +18,7 @@ There are three separate sets of files to backup: configuration data, security d
 
 After you have already setup a backup share in virtualbox and mounted it correctly, do the following steps:
 
-** 1. Config Data Backup **  
+**1. Config Data Backup**  
 
 For omnibus installations, configuration data is here: `/etc/gitlab`.  
 To create a daily config data backup, edit the cron table for user root:
@@ -38,7 +38,7 @@ Cron is rather particular Note the following:
 1. The empty line after the command
 2. The escaped percent character: \%
 
-** To manually perform a backup: **
+**To manually perform a backup:**
 ```bash
 # cd into the directory that you wish you save the backup file to, for example:
 cd ~/gitlab/backups/config
@@ -48,7 +48,7 @@ cd ~/gitlab/backups/config
 sudo sh -c 'umask 0077; tar -cf $(date "+etc-gitlab-%s.tar") -C / etc/gitlab'
 ```
 
-** To Restore: **  
+**To Restore:**  
 You can extract the .tar file as follows.
 
 ```bash
@@ -61,7 +61,7 @@ sudo tar -xf etc-gitlab-1399948539.tar -C /
 Remember to run sudo gitlab-ctl reconfigure after restoring a configuration
 backup.
 
-** 2. Security Keys Backup **
+**2. Security Keys Backup**
 
 Your machines SSH host keys are stored in a separate location at `/etc/ssh/`. Let's backup and restore those keys to avoid man-in-the-middle attack warnings if you have to perform a full machine restore.
 
@@ -80,7 +80,7 @@ sudo sh -c 'umask 0077; tar -cf $(date "+etc-ssh-%s.tar") -C / etc/ssh'
 If you ever have to restore, be mindful of permissions and ownership.
 Reference: https://superuser.com/a/532079
 
-** 3. Application Data Backup **   
+**3. Application Data Backup**   
 
 Reference: https://docs.gitlab.com/ce/raketasks/backup_restore.html#create-a-backup-of-the-gitlab-system  
 
@@ -140,7 +140,7 @@ if you ever have to run backup manually, below is the rake task command:
 sudo gitlab-rake gitlab:backup:create STRATEGY=copy
 ```
 
-** Restoring Application Backup **
+**Restoring Application Backup**
 
 First make sure your backup tar file is in the backup directory described in the gitlab.rb configuration gitlab_rails['backup_path']. The default is `/var/opt/gitlab/backups`.
 

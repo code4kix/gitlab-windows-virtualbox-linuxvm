@@ -1,4 +1,4 @@
-# ** Gitlab Omnibus - NGINX Configuration **
+# **Gitlab Omnibus - NGINX Configuration**
 
 Reference: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/nginx.md
 
@@ -83,7 +83,7 @@ external_url "https://gitlab.local"
 nginx['redirect_http_to_https'] = true
 ```
 
-** Generate keys: ** On the virtualbox guest machine. Open a shell terminal and ssh into the virtualbox guest vm. Note here that the keys are named `gitlab.example.com` because that is used in the `external_url` entry in the gitlab.rb file. These key names below has to match that entry:
+**Generate keys:** On the virtualbox guest machine. Open a shell terminal and ssh into the virtualbox guest vm. Note here that the keys are named `gitlab.example.com` because that is used in the `external_url` entry in the gitlab.rb file. These key names below has to match that entry:
 
 ```bash
 sudo openssl genrsa -des3 -out /etc/gitlab/ssl/gitlab.example.com.key 4096
