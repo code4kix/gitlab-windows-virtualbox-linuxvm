@@ -36,16 +36,16 @@ On host, create a dir and share (using shell or vbox gui) Reference: <https://na
 On the host, open bash terminal:
 
 ```bash
-cd 'C:\Gitlab\'
-# Example share "C:\Gitlab\backups"
+cd 'C:\gitlab\'
+# Example share "C:\gitlab\backups"
 mkdir backups
 # On windows, VBoxManage is here: "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 # VBoxManage sharedfolder add <vmname> --name <some_share_name> --hostpath <hostpath>
 cd "C:\Program Files\Oracle\VirtualBox"
 # for shell use:
-./VBoxManage sharedfolder add CentOS-7-Gitlab --name backups --hostpath "C:\Gitlab\backups" --automount
+./VBoxManage sharedfolder add CentOS-7-Gitlab --name backups --hostpath "C:\gitlab\backups" --automount
 # for command use:
-# VBoxManage sharedfolder add CentOS-7-Gitlab --name backups --hostpath "C:\Gitlab\backups" --automount
+# VBoxManage sharedfolder add CentOS-7-Gitlab --name backups --hostpath "C:\gitlab\backups" --automount
 ```
 Now, ssh into the virtualbox guest and run the following:
 ```bash
