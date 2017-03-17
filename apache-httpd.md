@@ -17,10 +17,10 @@ Create a local user account and use that to start this service.
 Edit the httpd.conf with the following entries (lines 37, 246, 247):
 
 ```
-ServerRoot "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24"
+ServerRoot "C:\Software\httpd-2.4.25-win64-VC14\Apache24"
 
-DocumentRoot "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs"
-<Directory "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs">
+DocumentRoot "C:\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs"
+<Directory "C:\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs">
 ```
 localhost:80 should say "It works!"
 
@@ -58,8 +58,8 @@ We are going to configure self-signed certs on the front and apache httd server 
 ### Generate and Sign Certs
 In command window:
 ```
-set OPENSSL_CONF=C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24\conf\openssl.cnf
-cd C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24\bin
+set OPENSSL_CONF=C:\Software\httpd-2.4.25-win64-VC14\Apache24\conf\openssl.cnf
+cd C:\Software\httpd-2.4.25-win64-VC14\Apache24\bin
 openssl genrsa -des3 -out c:/Gitlab/ssl/gitlab.local.key 4096
 openssl req -new -key c:/Gitlab/ssl/gitlab.local.key -out c:/Gitlab/ssl/gitlab.local.csr
 ```
@@ -88,7 +88,7 @@ Listen 443
 
 LoadModule ssl_module modules/mod_ssl.so
 
-SSLSessionCache        "shmcb:C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24/logs/ssl_scache(512000)"
+SSLSessionCache        "shmcb:C:\Software\httpd-2.4.25-win64-VC14\Apache24/logs/ssl_scache(512000)"
 SSLSessionCacheTimeout  300
 
 Include conf/extra/httpd-vhosts.conf
@@ -106,10 +106,10 @@ In httpd-vhosts.conf
     RequestHeader set X-URL-SCHEME https
     ServerName gitlab.local:443
     ServerAlias gitlab:443
-    ErrorLog "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-error.log"
-    CustomLog "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-access.log" common
+    ErrorLog "C:\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-error.log"
+    CustomLog "C:\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-access.log" common
     # ServerAdmin admin@example.com
-    DocumentRoot "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs"
+    DocumentRoot "C:\Software\httpd-2.4.25-win64-VC14\Apache24\htdocs"
     <Directory />
        Require all granted
    </Directory>
@@ -154,8 +154,8 @@ Also, note that the server name has to match
     RequestHeader set X-URL-SCHEME https
     ServerName gitlab.local:443
     ServerAlias gitlab:443
-    ErrorLog "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-error.log"
-    CustomLog "C:\alohaqs\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-access.log" common
+    ErrorLog "C:\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-error.log"
+    CustomLog "C:\Software\httpd-2.4.25-win64-VC14\Apache24/logs/gitlab-access.log" common
     # ServerAdmin admin@example.com
 
     SSLEngine On
